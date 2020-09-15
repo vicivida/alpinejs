@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alpine JS: Events</title>
+  <script src="js/alpine.min.js"></script>
+</head>
+<body>
+  <div x-data="{
+    onClick: function(event) {
+      console.log('Se ha pulsado el botoncico')
+      console.log(event)
+      console.log(event.target)
+    }
+  }">
+    <button x-on:click="onClick(event)">Botón de tocar</button>
+  </div>
+</body>
+</html>

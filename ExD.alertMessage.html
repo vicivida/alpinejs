@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/alpine.min.js"></script>
+</head>
+<body>
+  <div
+    x-data="{ msg: 'Something not ideal might be happening.', level: '', capitalize: str => str.charAt(0).toUpperCase() + str.slice(1) }">
+    <label for="alert-message">Alert Message</label>
+    <input id="alert-message" name="alert-message" x-model="msg" />
+    <button style="background-color: aqua;" @click="level = 'info'">Alert Info</button>
+    <button style="background-color: red; color:white" @click="level = 'error'">Alert Error</button>
+    <button style="background-color: yellow; color:green" @click="msg = '', level = ''">
+      Clear
+    </button>
+    <template x-if="msg && level">
+      <div role="alert">
+        <div x-text="capitalize(level)">
+        </div>
+        <div>
+          <p x-text="msg"></p>
+        </div>
+      </div>
+    </template>
+  </div>
+</body>
+</html>

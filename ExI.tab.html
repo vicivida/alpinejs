@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/alpine.min.js"></script>
+</head>
+<body>
+  <div x-data="{ tab: 'two' }">
+    <button :class="{ 'active': tab === 'one' }" @click="tab = 'one'">One</button>
+    <button :class="{ 'active': tab === 'two' }" @click="tab = 'two'">Two</button>
+    <div x-show="tab === 'one'"><p>Javascript</p></div>
+    <div x-show="tab === 'two'"><p>library: Alpine Js</p></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<html>
+<script src="js/alpine.min.js"></script>
+<body>
+  <div x-data="{ items: [], adding: false }" x-init="$refs.ok.disabled = true">
+    <template x-for="item in items" :key="item">
+      <div>
+        <span x-text="item"></span>
+        <button @click="items = items.filter(i => i !== item)">DEL</button>
+      </div>
+    </template>
+    <button @click="adding = true">ADD</button>
+    <div x-show.transition="adding" @click.away="adding = false">
+      <label for="name">Name:</label>
+      <input id="name" x-model="name" @keyup="$refs.ok.disabled = name.length === 0" />
+      <button @click="adding = false">CANCEL</button>
+      <button @click="adding = false; items.push(name); name = ''; $refs.ok.disabled = true" x-ref="ok">OK</button>
+    </div>
+  </div>
+</body>
+</html>

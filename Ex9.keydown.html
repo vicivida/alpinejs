@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alpine JS: Events</title>
+  <script src="js/alpine.min.js"></script>
+  <style>
+    button {
+      padding: 100px;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div x-data="{
+    texto: '',
+    onKeyPressEnter: function(event){
+      this.texto = event.target.value
+    },
+    onInput: function(event){
+      this.texto = event.target.value
+    }
+  }">
+    <p x-text="texto"></p>
+    <input type="text" x-on:keydown.enter="onKeyPressEnter(event)">
+    <input type="text" x-on:input="onInput(event)">
+    <input type="checkbox" x-on:click.prevent>
+  </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>colors</title>
+  <script src="js/alpine.min.js"></script>
+  <style>
+    .title {
+      font-weight: 400;
+      text-align: center;
+    }
+    .card-content {
+      background-color: #fff;
+      min-height: 300px;
+      padding: 48px 24px;
+    }
+    .colors {
+      display: flex;
+      justify-content: center;
+      padding: 12px 0;
+    }
+    .color {
+      border-radius: 50%;
+      box-shadow: 0 6px 3px rgba(0, 0, 0, 0.13);
+      cursor: pointer;
+      height: 50px;
+      margin: 0 12px;
+      width: 50px;
+    }
+    .color:hover {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="card-content">
+    <div x-data="{
+      list: [
+        {hex: '#2DCC72', name: 'green'},
+        {hex: '#D64A4B', name: 'red'},
+        {hex: '#8E46AC', name: 'purple'},
+        {hex: '#3A87BB', name: 'blue'},
+        {hex: '#BFC4C8', name: 'gray'}
+      ],
+      selected: 'blue',
+      changeColor(name) {
+        this.selected = name;
+      },
+      getCurrentColor() {
+        return this.list.find(c => c.name === this.selected);
+      }
+    };">
+      <h2 class="title" x-bind:style="'color:' + getCurrentColor().hex">
+        Pick a color
+      </h2>
+      <div class="colors">
+        <template x-for="color in list" :key="color.name">
+          <!-- Template Literals are allowed to use with x-bindings -->
+          <div class="color" x-bind:style="`background-color: ${color.hex}`" 
+            @click="changeColor(color.name)"></div>
+        </template>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

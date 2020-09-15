@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/alpine.min.js"></script>
+</head>
+<body>
+  <div>
+    <p x-data x-bind:style="'color:' + 'green;'">The text will say green</p>
+    <p x-data :style="'color:blue;'+'font-size: 40px;'">The text will say blue</p>
+    <!-- normal -->
+    <p style="background-color: cornflowerblue; color: orange; font-size: 30px;">This text say orange</p>
+  </div>
+</body>
+</html>

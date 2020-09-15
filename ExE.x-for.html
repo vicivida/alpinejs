@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alpine JS: x-for</title>
+  <script src="js/alpine.min.js"></script>
+</head>
+<body>
+  <div x-data="{animales: ['perro', 'gato', 'loro', 'gusano', 'leopardo']}">
+    <ul>
+      <template x-for="animal in animales">
+        <li x-text="animal"></li>
+      </template>
+    </ul>
+  </div>
+</body>
+</html>

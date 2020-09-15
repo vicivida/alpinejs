@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alpine JS</title>
+  <script src="js/alpine.min.js"></script>
+</head>
+<body>
+  <div x-data="{
+    usuario: null,
+    start: function(){
+      console.log('Bienvenido a Alpine JS')
+      this.usuario = 'Marta'
+    }
+  }" x-init="start()">
+    <p x-text="usuario"></p>
+  </div>
+</body>
+</html>

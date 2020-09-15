@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alpine JS: x-if</title>
+  <script src="js/alpine.min.js"></script>
+</head>
+<body>
+  <div x-data="{open:false}">
+    <button @click="open = !open">Muestra/Oculta</button>
+    <template x-if="open">
+      <div>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex, est!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, sint.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor aliquam repellat iusto saepe vel eum neque
+          quod, ex laudantium?</p>
+      </div>
+    </template>
+  </div>
+</body>
+</html>

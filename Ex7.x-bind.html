@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alpine JS: x-bind</title>
+  <script src="js/alpine.min.js"></script>
+  <style>
+    .active{
+      border: 1px solid black;
+      background-color: darkkhaki ;
+    }
+    .inactive{
+      border: 0;
+      background-color: paleturquoise;
+    }
+  </style>
+</head>
+<body>
+  <div x-data={open:false}>
+    <p x-text="open"></p>
+    <!-- @click = x-on:click -->
+    <button @click="open = !open">Change!!</button>
+    <p x-show="open">Hello World Alpine</p>
+    <p x-bind:class="{'active': open, 'inactive': !open}">Paragraph with style</p>
+    <button x-bind:disabled="open">Pulsa!!!</button>
+  </div>
+</body>
+</html>

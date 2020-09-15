@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alpine JS: Events</title>
+  <script src="js/alpine.min.js"></script>
+  <style>
+    button {
+      padding: 100px;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div x-data="{
+    onClick: function(event) {
+      console.log('Se ha pulsado el botoncico')
+      console.log(event)
+      console.log(event.target)
+    },
+    onMouseOver: function(event){
+      event.target.style.backgroundColor= 'lightgreen'
+      event.target.style.color = 'black'
+    },
+    onMouseOut: function(){
+      event.target.style.backgroundColor= 'red'
+      event.target.style.color = 'green'
+    }
+  }">
+    <button @click="onClick(event)" @mouseover="onMouseOver(event)" @mouseout="onMouseOut(event)">Botón de
+      tocar</button>
+  </div>
+</body>
+
+</html>
